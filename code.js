@@ -8,8 +8,6 @@ function imgClicked(event) {
 
     let suite = event.target.className;
 
-    // "flip over" card
-
     if (suite === "headphones") {
         event.target.src = "https://i.pinimg.com/564x/41/bb/8a/41bb8ac6926de03470ac8ca5a89884e8.jpg";
     } else if (suite === "tulip") {
