@@ -1,4 +1,4 @@
-var prev = {class: ""};
+var prev = {class: "", src: ""};
 var curr = {class: ""};
 var round = 1;
 
@@ -18,25 +18,35 @@ function imgClicked(event) {
 
     if (round === 1) {
         prev.class = `${suite}`;
+        prev.src = event.target;
         round ++; 
     } else { // round 2!
         curr.class = `${suite}`;
+
+        // FIXME: to del later
+        document.getElementById("pc").innerHTML = `${prev.class}`;
+        document.getElementById("cc").innerHTML = `${curr.class}`;
 
         if (prev.class === curr.class) {
             score ++;
             document.getElementById("myScore").innerHTML = `${score}`;
 
+            event.target.setAttribute("onclick", null);
+            prev.src.setAttribute("onclick", null);
+
             prev.class = "";
+            prev.src = undefined;
             curr.class = "";
-
-            round = 1;
         } else {
-            prev.class = `${curr.class}`;
-            // no change to round
+            setTimeout(function() {
+                event.target.src = "https://i.pinimg.com/564x/ed/96/04/ed96049b1ce8286865d69cf59c321488.jpg";
+                prev.src.src = "https://i.pinimg.com/564x/ed/96/04/ed96049b1ce8286865d69cf59c321488.jpg";
+                }, 2000); // 2000 milliseconds = 2 seconds
         }
+        
+        round = 1;
+        
     }
-
-    event.target.setAttribute("onclick", null);
 
 }
 
