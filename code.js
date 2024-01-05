@@ -23,10 +23,6 @@ function imgClicked(event) {
     } else { // round 2!
         curr.class = `${suite}`;
 
-        // FIXME: to del later
-        document.getElementById("pc").innerHTML = `${prev.class}`;
-        document.getElementById("cc").innerHTML = `${curr.class}`;
-
         if (prev.class === curr.class) {
             score ++;
             document.getElementById("myScore").innerHTML = `${score}`;
@@ -65,4 +61,5 @@ addEventListener('load', shuffleDeck);
 
 const i = document.querySelector('img');
 i.addEventListener('click', imgClicked);
+
 
