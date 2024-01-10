@@ -61,5 +61,3 @@ addEventListener('load', shuffleDeck);
 
 const i = document.querySelector('img');
 i.addEventListener('click', imgClicked);
-
-
